@@ -7,8 +7,28 @@
 //
 
 extension Hero {
+  
+  func mostCommonCharacter(inventory: [UDItem]) -> Character? {
     
-    func mostCommonCharacter(inventory: [UDItem]) -> Character? {
-        return nil
+    var characterCount = [Character:Int]()
+    for item in inventory{
+      for char in item.name.lowercaseString.characters{
+        (characterCount[char] != nil)
+          ? (characterCount[char]! += 1)
+          : (characterCount[char] = 1 )
+      }
     }
+    
+    var greatestChar: Character? = nil
+    var greatestCharCount = 0
+    for (char, count) in characterCount{
+      if greatestCharCount < count {
+        greatestCharCount = count
+        greatestChar = char
+      }
+    }
+    
+    return greatestChar
+  }
+  
 }
