@@ -7,9 +7,17 @@
 //
 
 extension Hero {
+  
+  func checkBadges(badges: [Badge], requestTypes: [UDRequestType]) -> Bool {
     
-    func checkBadges(badges: [Badge], requestTypes: [UDRequestType]) -> Bool {
-        return true
+    var typesToCheck = requestTypes
+    for badge in badges{
+      if let index = typesToCheck.indexOf(badge.requestType){
+        typesToCheck.removeAtIndex(index)
+      }
     }
     
+    return typesToCheck.isEmpty
+  }
+  
 }
