@@ -7,9 +7,18 @@
 //
 
 extension Hero {
+  
+  func getCommonItems(inventory: [UDItem]) -> [UDItem] {
     
-    func getCommonItems(inventory: [UDItem]) -> [UDItem] {
-        return [UDItem]()
+    let commonItems = inventory.reduce([UDItem]()){ (var array, item) -> [UDItem] in
+      if item.rarity.hashValue == UDItemRarity.Common.hashValue{
+        array.append(item)
+      }
+      return array
     }
+    // Note: `filter` can also be used
     
+    return commonItems
+  }
+  
 }

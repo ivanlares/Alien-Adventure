@@ -7,8 +7,15 @@
 //
 
 extension Hero {
+  
+  func boostItemValue(inventory: [UDItem]) -> [UDItem] {
     
-    func boostItemValue(inventory: [UDItem]) -> [UDItem] {
-        return [UDItem]()
-    }
+    let boostedItems =
+    inventory.map(){  (item:UDItem) -> UDItem in
+        return UDItem(itemID: item.itemID, itemType: item.itemType, name: item.name, baseValue: item.baseValue + 100, inscription: item.inscription, rarity: item.rarity, historicalData: item.historicalData)
+      }
+    
+    return boostedItems
+  }
+  
 }

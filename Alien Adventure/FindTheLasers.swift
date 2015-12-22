@@ -7,14 +7,17 @@
 //
 
 extension Hero {
+  
+  func findTheLasers() -> (UDItem -> Bool) {
     
-    func findTheLasers() -> (UDItem -> Bool) {
-        
-        func containsLaser(item: UDItem) -> Bool {
-            return true
-        }
-        
-        return containsLaser
+    func containsLaser(item: UDItem) -> Bool {
+      if item.name.lowercaseString.containsString("laser"){
+        return true
+      }
+      return false
     }
     
+    return containsLaser
+  }
+  
 }

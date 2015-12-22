@@ -7,9 +7,14 @@
 //
 
 extension Hero {
+  
+  func totalBaseValue(inventory: [UDItem]) -> Int {
     
-    func totalBaseValue(inventory: [UDItem]) -> Int {
-        return 0
+    let combinedBaseValue = inventory.reduce(0){ (value: Int, item:UDItem) -> Int in
+      return value + item.baseValue
     }
     
+    return combinedBaseValue
+  }
+  
 }
